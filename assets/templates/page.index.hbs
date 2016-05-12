@@ -1,0 +1,162 @@
+<div class="page row">
+  <div class="small-12 large-9 columns">
+    {{#if owner}}
+      <div class="box black">
+        <table class="meta">
+          <tr>
+            <td>{{t "page.created"}}:</td>
+            <th>{{format-date created}}</th>
+          </tr>
+
+          <tr>
+            <td>{{t "page.code"}}:</td>
+            <th>{{code}}</th>
+          </tr>
+        </table>
+      </div>
+    {{/if}}
+
+    <div class="box black">
+      <h1>{{title}}</h1>
+
+      <div class="body">{{{body}}}</div>
+
+      <div class="footer">
+        <div class="date">{{t "page.date"}}: {{date}}</div>
+      </div>
+    </div>
+
+    {{#if photos}}
+      <div class="box white">
+        <h1>{{t "page.photos"}}</h1>
+
+        {{view ESF.PhotosView}}
+      </div>
+    {{/if}}
+
+    {{#if videos}}
+      <div class="box white">
+        <h1>{{t "page.videos"}}</h1>
+
+        {{#if owner}}
+          <div class="form-help">{{t "page.videos.notice"}}</div>
+        {{/if}}
+
+        {{view ESF.VideosView}}
+      </div>
+    {{/if}}
+
+    {{#if map}}
+      <div class="box white">
+        <h1>{{t "page.map"}}</h1>
+
+        {{view ESF.MapView}}
+
+        {{#each logs}}
+          {{#each linestrings}}
+            {{view ESF.ElevationView}}
+          {{/each}}
+        {{/each}}
+      </div>
+    {{/if}}
+
+    {{#if commentsAllowed}}
+      <div class="box white">
+        <h1>{{t "page.comments"}}</h1>
+
+        {{view ESF.CommentsView}}
+        {{comment-form destination=comments page=id}}
+      </div>
+    {{/if}}
+
+    {{#if notes}}
+      <div class="box gray">
+        <h1>{{t "page.notes"}}</h1>
+
+        <div class="plain">{{notes}}</div>
+      </div>
+    {{/if}}
+
+    {{#if owner}}
+      <div class="actions row">
+        <div class="small-12 medium-6 columns">
+          {{#link-to "page.edit" class="edit"}}
+            {{t "page.edit"}}
+          {{/link-to}}
+        </div>
+
+        <div class="small-12 medium-6 columns">
+          {{#link-to "page.delete" class="delete"}}
+            {{t "page.delete"}}
+          {{/link-to}}
+        </div>
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="small-12 large-3 columns block-pull">
+    {{#if user.isInstructor}}
+      {{#if hasInstructors}}
+        <div class="block-title">
+          {{#if instructors}}
+            <h2>{{t "page.instructors"}}</h2>
+          {{else}}
+            <h2>{{t "page.instructor"}}</h2>
+          {{/if}}
+        </div>
+      {{/if}}
+
+      {{#with user}}
+        <div class="block-content">
+          {{view ESF.InstructorView}}
+        </div>
+      {{/with}}
+    {{/if}}
+
+    {{#if user.isSchool}}
+      {{#with user}}
+        <div class="block-title">
+          <h2>{{t "page.school"}}</h2>
+        </div>
+
+        <div class="block-content">
+          {{view ESF.SchoolView}}
+        </div>
+      {{/with}}
+    {{/if}}
+
+    {{#each instructors}}
+      {{#if active}}
+        <div class="block-content">
+          {{view ESF.InstructorView}}
+        </div>
+      {{/if}}
+    {{/each}}
+
+    {{#with user.school}}
+      {{#if active}}
+        <div class="block-title">
+          <h2>{{t "page.school"}}</h2>
+        </div>
+
+        <div class="block-content">
+          {{view ESF.SchoolView}}
+        </div>
+      {{/if}}
+    {{/with}}
+
+    {{#if sharingAllowed}}
+      <div class="block-title">
+        <h2>{{t "page.share"}}</h2>
+      </div>
+
+      <div class="block-content">
+        {{sharing-icons page=id subject=title}}
+      </div>
+    {{/if}}
+
+    {{#with school}}
+      {{page-ad-display esf=username}}
+    {{/with}}
+  </div>
+</div>

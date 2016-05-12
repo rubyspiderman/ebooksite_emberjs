@@ -1,0 +1,163 @@
+<form>
+  <div class="row">
+    <div class="small-12 large-6 columns">
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label class="required">{{t "user.username"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{input class="form-text" disabled=isPersisted type="text" value=username}}
+        </div>
+
+        <div class="small-2 large-1 columns">
+          {{help-tooltip textTranslation="user.username.help"}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label class="required">{{t "user.mail"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{input class="form-text" type="text" value=mail}}
+        </div>
+
+        <div class="small-2 large-1 columns">
+          {{help-tooltip textTranslation="user.mail.help"}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label class="required">{{t "user.last"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{input class="form-text" type="text" value=last}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label class="required">{{t "user.first"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{input class="form-text" type="text" value=first}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label>{{t "user.bio"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{textarea class="form-text multiple" rows=8 value=bio}}
+        </div>
+
+        <div class="small-2 large-1 columns">
+          {{help-tooltip textTranslation="user.bio.help"}}
+        </div>
+      </div>
+
+      {{#unless direct}}
+        <div class="form-group row">
+          <div class="small-12 large-5 columns form-label">
+            <label class="required">{{t "user.school"}}</label>
+          </div>
+
+          <div class="small-10 large-6 columns">
+            {{view Ember.Select
+              class="form-select"
+              content=schools
+              optionLabelPath="content.name"
+              optionValuePath="content.id"
+              prompt=" "
+              selection=school.content
+            }}
+
+            <div class="form-help">
+              <a href="http://info.esfbook.net/adherer" target="_blank">{{t "user.school.help"}}</a>
+            </div>
+          </div>
+        </div>
+      {{/unless}}
+    </div>
+
+    <div class="small-12 large-6 columns">
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label class="required">{{t "user.dob"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{view ESF.ComposedDateField value=dob}}
+        </div>
+
+        <div class="small-2 large-1 columns">
+          {{help-tooltip textTranslation="user.dob.help"}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label>{{t "user.phone"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{input class="form-text" type="text" value=phone}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label>{{t "user.facebook"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          {{input class="form-text" type="text" value=facebook}}
+        </div>
+
+        <div class="small-2 large-1 columns">
+          {{help-tooltip textTranslation="user.facebook.help"}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label>{{t "user.twitter"}}</label>
+        </div>
+
+        <div class="small-10 large-6 columns">
+          <span class="add-on">@</span>
+          {{input class="form-text" type="text" value=twitter}}
+        </div>
+
+        <div class="small-2 large-1 columns">
+          {{help-tooltip textTranslation="user.twitter.help"}}
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="small-12 large-5 columns form-label">
+          <label>{{t "user.picture"}}</label>
+        </div>
+
+        <div class="small-12 large-7 columns">
+          {{#with picture}}
+            {{view ESF.PictureTransformView}}
+
+            <div class="actions picture-actions">
+              <button class="form-button red" {{action "deletePicture" this}}>{{t "user.picture.remove"}}</button>
+            </div>
+          {{/with}}
+
+          {{picture-upload destination=picture}}
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

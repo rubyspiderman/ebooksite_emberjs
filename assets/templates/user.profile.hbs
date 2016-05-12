@@ -1,0 +1,41 @@
+<div class="user-profile row">
+  <div class="small-12 columns">
+    <div class="box white">
+      {{partial "user-subnav"}}
+
+      {{#each messages}}
+        <div class="user-message">
+          {{this}}
+        </div>
+      {{/each}}
+
+      {{#if isSchool}}
+        {{partial "user-school-profile"}}
+      {{else}}
+        {{partial "user-instructor-profile"}}
+      {{/if}}
+
+      <div class="actions row">
+        <div class="small-12 medium-6 columns">
+          {{#link-to "user.edit" class="edit"}}
+            {{t "user.edit"}}
+          {{/link-to}}
+        </div>
+
+        <div class="small-12 medium-6 columns">
+          {{#link-to "user.password" class="password"}}
+            {{t "user.password.instructions"}}
+          {{/link-to}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#unless isSchool}}
+  <div class="user-ad row">
+    <div class="small-12 columns">
+      {{instructor-ad-display}}
+    </div>
+  </div>
+{{/unless}}

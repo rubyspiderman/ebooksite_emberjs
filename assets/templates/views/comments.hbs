@@ -1,0 +1,48 @@
+{{#with view as page}}
+  {{#each comments}}
+    {{#unless isNew}}
+      <div class="comment row">
+        <div class="byline small-12 medium-3 columns">
+          <div><strong>{{name}}</strong></div>
+          <div><small>{{format-date created}}</small></div>
+          {{#if page.controller.owner}}
+            <div><small><a {{action "deleteComment" this}}>{{t "page.comments.delete"}}</a></small></div>
+          {{/if}}
+        </div>
+
+        <div class="body small-12 medium-8 columns">
+          <div class="plain">{{body}}
+
+          </div>
+
+          {{#if approved}}
+            {{view ESF.CommentPhotosView}}
+          {{/if}}
+
+          {{#if unapproved}}
+            <div>
+              <small><strong>{{t "page.comments.unapproved"}}</strong></small>
+            </div>
+
+            {{#if page.controller.owner}}
+              {{#each unapproved}}
+                <div class="comment-photo">
+                  <div class="thumbnail">
+                    <img {{bind-attr src=thumbnail}} />
+                  </div>
+
+                  <div class="actions">
+                    <button class="form-button blue" {{action "approvePhoto" this}}>{{t "page.comments.photo.approve"}}</button>
+                    <button class="form-button red" {{action "removePhoto" this}}>{{t "page.comments.photo.deny"}}</button>
+                  </div>
+                </div>
+              {{/each}}
+            {{/if}}
+          {{/if}}
+        </div>
+      </div>
+    {{/unless}}
+  {{else}}
+    <p class="empty">{{t "page.comments.empty"}}</p>
+  {{/each}}
+{{/with}}

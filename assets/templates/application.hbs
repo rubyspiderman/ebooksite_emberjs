@@ -1,0 +1,97 @@
+<div class="wrapper">
+  {{#if session.isAuthenticated}}
+    <div class="main-menu">
+      <div class="menu-item">
+        {{#link-to "user.profile" session.user_id}}
+          {{t "user.profile"}}
+        {{/link-to}}
+      </div>
+
+      <div class="menu-item">
+        {{#link-to "user.pages" session.user_id}}
+          {{t "user.pages"}}
+        {{/link-to}}
+      </div>
+
+      {{#if session.isSchool}}
+        <div class="menu-item">
+          {{#link-to "user.instructors" session.user_id}}
+            {{t "user.instructors"}}
+          {{/link-to}}
+        </div>
+
+        <div class="menu-item">
+          {{#link-to "user.subpages" session.user_id}}
+            {{t "user.subpages"}}
+          {{/link-to}}
+        </div>
+      {{/if}}
+
+      {{#if session.isActive}}
+        <div class="menu-item">
+          {{#link-to "page.add"}}
+            {{t "page.create"}}
+          {{/link-to}}
+        </div>
+      {{/if}}
+
+      <div class="menu-item">
+        <a href="http://info.esfbook.net/tutoriels/" target="_blank">
+          {{t "tutorials"}}
+        </a>
+      </div>
+
+      <div class="menu-item">
+        <a href="http://support.esfbook.net/open.php" target="_blank">
+          {{t "contact"}}
+        </a>
+      </div>
+
+      <div class="menu-item">
+        <a {{action "invalidateSession"}}>
+          {{t "user.logout"}}
+        </a>
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="application">
+    <div class="brand">
+      <div class="row">
+        <div class="small-6 columns">
+          {{#link-to "index" class="brand-logo"}}{{t "site.name"}}{{/link-to}}
+        </div>
+
+        <div class="small-6 columns">
+          <a href="/" class="fr-toggle active">FR</a>
+          <a href="/en/" class="en-toggle">EN</a>
+          {{#if session.isAuthenticated}}
+            <span class="menu-toggle" {{action "toggleMenu"}}></span>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      {{outlet}}
+    </div>
+  </div>
+</div>
+
+<div class="footer-menu">
+  <div class="menu-item">
+    {{#if session.isAuthenticated}}
+      {{#link-to "user" session.user_id}}{{t "user.account"}}{{/link-to}}
+    {{else}}
+      {{#link-to "user.login"}}{{t "user.access"}}{{/link-to}}
+    {{/if}}
+  </div>
+
+  <div class="menu-item">
+    <a href="http://info.esfbook.net/conditions-generales/" target="_blank">{{t "terms"}}</a>
+  </div>
+
+  <div class="menu-item">
+    <a href="http://info.esfbook.net/mentions-legales" target="_blank">{{t "credits"}}</a>
+  </div>
+</div>

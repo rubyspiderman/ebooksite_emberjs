@@ -1,0 +1,13 @@
+{
+  "name": "wysihtml5",
+  "homepage": "https://github.com/xing/wysihtml5",
+  "_release": "56960b31ad",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "56960b31adc37e07797382d8e8b10109f206b19c"
+  },
+  "_source": "git://github.com/xing/wysihtml5.git",
+  "_target": "master",
+  "_originalSource": "wysihtml5"
+}

@@ -1,0 +1,135 @@
+.page {
+  .ad {
+    margin-top: 1em;
+  }
+
+  .box {
+    margin-bottom: 1em;
+  }
+
+  .comment {
+    margin-bottom: 1em;
+
+    .byline {
+      color: $dark-gray;
+    }
+  }
+
+  .comment-form {
+    .error {
+      color: $red;
+      font-size: 0.88em;
+    }
+  }
+
+  .comments {
+    margin-bottom: 2em;
+  }
+
+  .comment-photo {
+    display: inline-block;
+    margin-top: 0.5em;
+    width: 200px;
+
+    .form-button {
+      margin-top: 0.25em;
+      width: 100%;
+    }
+  }
+
+  .date {
+    float: left;
+  }
+
+  .elevation {
+    margin-top: 1em;
+
+    label {
+      color: $dark-gray;
+    }
+
+    .graph {
+      height: 200px;
+      width: 100%;
+    }
+  }
+
+  .embed-container {
+    height: auto;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.5%;
+    position: relative;
+
+    embed, iframe, object {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .empty {
+    color: $gray;
+    font-style: italic;
+  }
+
+  .footer {
+    border-top: 1px dashed $light-gray;
+    color: $light-gray;
+    font-size: 0.88em;
+    margin-top: 1em;
+    padding-top: 1em;
+
+    @include clearfix;
+  }
+
+  .map {
+    height: 500px;
+    width: 100%;
+
+    img {
+      max-width: none;
+    }
+  }
+
+  .meta {
+    td {
+      padding-right: 1em;
+    }
+
+    th {
+      text-align: left;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .page {
+    .comment {
+      .body {
+        background-color: $light-gray;
+        min-height: 3.33em;
+        padding: 0.25em 0.5em;
+        position: relative;
+
+        &:before {
+          border: 0.5em solid transparent;
+          border-right-color: $light-gray;
+          content: '';
+          display: block;
+          height: 0;
+          position: absolute;
+          left: -1em;
+          top: 1em;
+        }
+      }
+
+      .byline {
+        padding-right: 1.25em;
+        text-align: right;
+      }
+    }
+  }
+}

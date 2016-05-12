@@ -1,0 +1,8 @@
+/.sass-cache/
+/cache/
+/config/
+/files/
+/node_modules/
+/vendor/
+/composer.lock
+/settings.php

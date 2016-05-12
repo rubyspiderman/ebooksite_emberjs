@@ -1,0 +1,14 @@
+<div class="thumbnail">
+  <img {{bind-attr src=thumbnail}} />
+</div>
+
+<div class="fields">
+  {{input class="form-text" placeholderTranslation="page.file.description" value=description}}
+</div>
+
+<div class="actions">
+  {{#if full}}
+    <button class="form-button gray" {{action "setBackground" this}}>{{t "page.file.background"}}</button>
+  {{/if}}
+  <button class="form-button red" {{action "deleteFile" this}}>{{t "page.file.delete"}}</button>
+</div>

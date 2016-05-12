@@ -1,0 +1,13 @@
+<div class="name">
+  {{name}}
+</div>
+
+{{progress-bar progress=progress error=error}}
+
+<div class="status">
+  {{#if message}}
+    {{tp message}} |
+  {{/if}}
+
+  <a {{action "removeFile" this}}>{{t "upload.cancel"}}</a>
+</div>

@@ -1,0 +1,20 @@
+<div class="user-register row">
+  <div class="small-12 columns">
+    <div class="box white">
+      {{#if isPersisted}}
+        <h1>{{t "user.edit"}}</h1>
+      {{else}}
+        <h1>{{t "user.create"}}</h1>
+      {{/if}}
+
+      {{#if isSchool}}
+        {{partial "user-school-edit"}}
+      {{else}}
+        {{partial "user-instructor-edit"}}
+      {{/if}}
+
+      <a {{action "save"}} class="form-button blue">{{t "user.save"}}</a>
+      <a {{action "cancel"}} class="form-button gray">{{t "user.cancel"}}</a>
+    </div>
+  </div>
+</div>

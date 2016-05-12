@@ -1,0 +1,25 @@
+{{view ESF.PictureView}}
+
+<div class="name">{{display}}</div>
+
+{{#if phone}}
+  <div class="phone">{{phone}}</div>
+{{/if}}
+
+{{#if mail}}
+  <div class="mail"><a {{bind-attr href=emailLink}}>{{t "instructor.email"}}</a></div>
+{{/if}}
+
+{{#if facebook}}
+  <div class="facebook"><a {{bind-attr href=facebookLink}} target="_blank">{{t "instructor.facebook"}}</a></div>
+{{/if}}
+
+{{#if twitter}}
+  <div class="twitter"><a {{bind-attr href=twitterLink}} target="_blank">{{t "instructor.twitter"}}</a></div>
+{{/if}}
+
+{{#if bio}}
+  <a class="bio-toggle" {{action "toggleBio" target="view"}}>{{t "instructor.bio"}}</a>
+
+  <div class="bio plain">{{bio}}</div>
+{{/if}}

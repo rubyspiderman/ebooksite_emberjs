@@ -1,0 +1,90 @@
+<div class="user-pages row">
+  <div class="small-12 columns">
+    <div class="box white">
+      {{partial "user-subnav"}}
+
+      {{#if hasPages}}
+        <div class="user-filters row">
+          <div class="small-12 medium-9 columns">
+            {{t "user.pages.filter.date"}}:
+            {{view ESF.DateField classNames="form-text inline" placeholderTranslation="user.pages.filter.start" valueBinding=start}}
+            {{t "user.pages.filter.to"}}
+            {{view ESF.DateField classNames="form-text inline" placeholderTranslation="user.pages.filter.end" valueBinding=end}}
+          </div>
+
+          <div class="small-12 medium-3 columns">
+            {{input class="form-text" placeholderTranslation="user.instructors.filter.search" value=search}}
+          </div>
+        </div>
+      {{/if}}
+
+      <div class="row">
+        <div class="small-12 columns">
+          {{#if hasPages}}
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    <a {{action "sortByColumn" "created"}}>{{t "user.pages.date"}}</a>
+                  </th>
+                  <th>
+                    <a {{action "sortByColumn" "user.display"}}>{{t "instructor.name"}}</a>
+                  </th>
+                  <th>
+                    <a {{action "sortByColumn" "code"}}>{{t "user.pages.code"}}</a>
+                  </th>
+                  <th>
+                    <a {{action "sortByColumn" "title"}}>{{t "user.pages.title"}}</a>
+                  </th>
+                  <th>
+                    <a {{action "sortByColumn" "views"}}>{{t "user.pages.views"}}</a>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {{#each pages}}
+                  <tr>
+                    <td>{{format-date created}}</td>
+                    <td>{{user.display}}</td>
+                    <td>{{code}}</td>
+                    <td>{{#link-to "page" this}}{{title}}{{/link-to}}</td>
+                    <td>{{views}}</td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          {{else}}
+            <div class="table-placeholder">
+              {{t "user.subpages.none"}}
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    <div class="user-stats box white">
+      <div class="row">
+        <div class="small-12 medium-4 columns">
+          <h2>{{t "user.statistics"}}</h2>
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <h4>{{t "user.statistics.pages.created"}}</h4>
+
+          <div class="stat">
+            {{pages.length}}
+          </div>
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <h4>{{t "user.statistics.pages.views"}}</h4>
+
+          <div class="stat">
+            {{views}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

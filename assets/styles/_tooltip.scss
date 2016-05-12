@@ -1,0 +1,48 @@
+.tooltip {
+  display: block;
+  position: absolute;
+  font-size: 0.75em;
+  line-height: 1.33;
+  opacity: 0;
+  visibility: visible;
+  z-index: 1000;
+
+  &.bottom {
+    margin-top: 5px;
+    padding: 0.5em 0;
+
+    .tooltip-arrow {
+      border-bottom-color: $black;
+      border-width: 0 5px 5px;
+      left: 50%;
+      margin-left: -5px;
+      top: 1px;
+    }
+  }
+
+  &.fade {
+    @include transition(opacity 0.25s);
+  }
+
+  &.in {
+    opacity: 0.9;
+  }
+}
+
+.tooltip-arrow {
+  border-color: transparent;
+  border-style: solid;
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+
+.tooltip-inner {
+  background-color: $black;
+  color: $white;
+  max-width: 200px;
+  padding: 0.5em;
+  text-align: center;
+
+  @include border-radius(4px);
+}

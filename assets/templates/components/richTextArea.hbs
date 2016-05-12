@@ -1,0 +1,31 @@
+<div class="toolbar" style="display: none;">
+  <div class="button-group">
+    <a class="form-button gray first" data-wysihtml5-command="bold">{{t "editor.bold"}}</a>
+    <a class="form-button gray" data-wysihtml5-command="italic">{{t "editor.italic"}}</a>
+    <a class="form-button gray last" data-wysihtml5-command="underline">{{t "editor.underline"}}</a>
+  </div>
+
+  <div class="button-group">
+    <a class="form-button gray first" data-wysihtml5-command="insertUnorderedList">{{t "editor.unordered"}}</a>
+    <a class="form-button gray last" data-wysihtml5-command="insertOrderedList">{{t "editor.ordered"}}</a>
+  </div>
+
+  <div class="button-group">
+    <a class="form-button gray only" data-wysihtml5-command="createLink">{{t "editor.link"}}</a>
+  </div>
+
+  <div class="inline-form row" style="display: none;" data-wysihtml5-dialog="createLink">
+    <div class="small-12 medium-8 columns">
+      <input class="form-text" placeholder="http://www.example.com/" data-wysihtml5-dialog-field="href" />
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <div class="button-group">
+        <a class="form-button blue first" data-wysihtml5-dialog-action="save">{{t "editor.link.ok"}}</a>
+        <a class="form-button red last" data-wysihtml5-dialog-action="cancel">{{t "editor.link.cancel"}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{textarea class="form-text multiple" rows="8" value=value}}

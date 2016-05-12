@@ -1,0 +1,171 @@
+<div class="page-edit row">
+  <div class="small-12 columns">
+    <div class="box white">
+      <h1>
+        {{#if title}}
+          {{title}}
+        {{else}}
+          {{t "page.untitled"}}
+        {{/if}}
+      </h1>
+
+      <form>
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label class="required">{{t "page.title"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{input autofocus="autofocus" class="form-text" type="text" value=title}}
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.date"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{input class="form-text" type="text" value=date}}
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.other_instructors"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{type-ahead class="form-text" data=schoolInstructors name="display" destination=instructors}}
+
+            <div class="form-help">{{t "page.other_instructors.help"}}</div>
+
+            <div class="row">
+              {{#each instructors}}
+                <div class="small-12 medium-4 columns other-instructor">
+                  {{view ESF.HeadshotView}}
+
+                  <div class="actions">
+                    <button class="form-button red" {{action "removeInstructor" this}}>{{t "page.other_instructors.remove"}}</button>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.body"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{rich-text-area value=body}}
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.photos"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{file-upload destination=photos model="photo"}}
+
+            <div class="form-help">{{t "page.photos.help"}}</div>
+
+            <div class="row">
+              {{file-list files=photos backgroundTarget=model}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.videos"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{video-upload destination=videos model="video"}}
+
+            <div class="form-help">{{t "page.videos.help"}}</div>
+
+            <div class="row">
+              {{file-list files=videos}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.logs"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{#unless logs}}
+              {{file-upload destination=logs model="log" single=true}}
+
+              <div class="form-help">{{t "page.logs.help"}}</div>
+            {{/unless}}
+
+            <div class="row">
+              {{file-list files=logs}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.options"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            <div class="form-checkbox">
+              <label>
+                {{input type="checkbox" checked=sharingAllowed}}
+                {{t "page.allow_sharing"}}
+              </label>
+            </div>
+
+            <div class="form-checkbox">
+              <label>
+                {{input type="checkbox" checked=commentsAllowed}}
+                {{t "page.allow_comments"}}
+              </label>
+            </div>
+
+            <div class="form-checkbox">
+              <label>
+                {{input type="checkbox" checked=photoMappingAllowed}}
+                {{t "page.allow_photo_mapping"}}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="form-group row">
+          <div class="small-12 large-2 columns form-label">
+            <label>{{t "page.notes"}}</label>
+          </div>
+
+          <div class="small-12 large-10 columns">
+            {{textarea class="form-text multiple" rows="8" value=notes}}
+
+            <div class="form-help">{{t "page.notes.help"}}</div>
+          </div>
+        </div>
+      </form>
+
+      <button {{action "save"}} {{bind-attr disabled=isSaving}} class="form-button blue">{{t "page.save"}}</button>
+      <button {{action "cancel"}} class="form-button gray">{{t "page.cancel"}}</button>
+
+      {{#if error}}
+        <div class="action-error">
+          {{tp error}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

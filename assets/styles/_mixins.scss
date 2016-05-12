@@ -1,0 +1,15 @@
+@mixin clearfix() {
+  &:before, &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin image() {
+  display: block;
+  text-indent: -9999px;
+}

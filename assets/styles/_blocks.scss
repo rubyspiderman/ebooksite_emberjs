@@ -1,0 +1,142 @@
+.block-content {
+  background-color: $white;
+  padding: 1em;
+}
+
+.block-pull {
+  margin-top: -1em;
+}
+
+.block-title {
+  background-color: rgba($black, 0.8);
+  margin-top: 1em;
+  padding: 1em;
+
+  h2 {
+    color: $white;
+    margin: 0;
+  }
+}
+
+.instructor {
+  a {
+    color: $black;
+
+    &:active, &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .bio-toggle, .facebook, .mail, .name, .phone, .twitter {
+    margin: 0.25em 0;
+    padding-left: 24px;
+  }
+
+  .bio-toggle {
+    background: image-url('icon-arrow.png') no-repeat;
+  }
+
+  .facebook {
+    background: image-url('icon-social.png') no-repeat 0 -66px;
+  }
+
+  .mail {
+    background: image-url('icon-social.png') no-repeat 0 -44px;
+  }
+
+  .name {
+    background: image-url('icon-person.png') no-repeat 0px 4px;
+    color: $red;
+    font-family: $title-font;
+    font-size: 1.25em;
+  }
+
+  .phone {
+    background: image-url('icon-social.png') no-repeat 0 -24px;
+  }
+
+  .picture {
+    margin-bottom: 0.5em;
+  }
+
+  .toggle-bio {
+    background: image-url('icon-arrow.png') no-repeat;
+  }
+
+  .twitter {
+    background: image-url('icon-social.png') no-repeat 0 -88px;
+  }
+}
+
+.school {
+  .booking, .facebook, .mail, .phone, .twitter, .url {
+    background-clip: padding-box;
+    background-image: image-url('icon-info.png');
+    background-repeat: no-repeat;
+    color: $white;
+    display: block;
+    font-family: $title-font;
+    font-size: 1.25em;
+    margin-top: 0.5em;
+    padding: 0.25em 0.5em;
+  }
+
+  .booking {
+    background-color: $red;
+    background-position: right 2px;
+  }
+
+  .facebook {
+    background-color: #074590;
+    background-position: right -174px;
+  }
+
+  .mail {
+    background-color: $red;
+    background-position: right -86px;
+  }
+
+  .phone {
+    background-color: $red;
+    background-position: right -43px;
+  }
+
+  .twitter {
+    background-color: #3baae1;
+    background-position: right -218px;
+  }
+
+  .url {
+    background-color: $red;
+    background-position: right -130px;
+  }
+}
+
+.sharing {
+  a {
+    display: inline-block;
+    height: 32px;
+    margin-right: 0.4em;
+    width: 32px;
+  }
+
+  .email {
+    background-image: image-url('sharing/email.png');
+  }
+
+  .facebook {
+    background-image: image-url('sharing/facebook.png');
+  }
+
+  .linkedin {
+    background-image: image-url('sharing/linkedin.png');
+  }
+
+  .plus {
+    background-image: image-url('sharing/plus.png');
+  }
+
+  .twitter {
+    background-image: image-url('sharing/twitter.png');
+  }
+}

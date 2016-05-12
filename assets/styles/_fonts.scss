@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'DS-Digital Italic';
+  src: url('fonts/ds-digital/ds-digital-italic.eot');
+  src: url('fonts/ds-digital/ds-digital-italic.eot#iefix') format('embedded-opentype'),
+    url('fonts/ds-digital/ds-digital-italic.woff') format('woff'),
+    url('fonts/ds-digital/ds-digital-italic.ttf') format('truetype'),
+    url('fonts/ds-digital/ds-digital-italic.svg#ds-digital-italic') format('svg');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Octin College';
+  src: url('fonts/octin-college/octin-college.eot');
+  src: url('fonts/octin-college/octin-college.eot#iefix') format('embedded-opentype'),
+    url('fonts/octin-college/octin-college.woff') format('woff'),
+    url('fonts/octin-college/octin-college.ttf') format('truetype'),
+    url('fonts/octin-college/octin-college.svg#octincollegeregular') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+$body-font: Arial, sans-serif;
+$digital-font: 'DS-Digital Italic';
+$title-font: 'Octin College', sans-serif;

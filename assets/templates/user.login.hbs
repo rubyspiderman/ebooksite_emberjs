@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="small-12 columns">
+    <div class="user-box">
+      <div class="instructions">
+        {{t "user.login.instructions"}}
+      </div>
+
+      <form class="form" {{action "login" on="submit"}}>
+        {{input class="form-text" placeholderTranslation="user.login.username" value=username}}
+        {{input class="form-text" placeholderTranslation="user.login.password" type="password" value=password}}
+        <button class="form-button blue" type="submit">{{t "user.login.submit"}}</button>
+
+        {{#if error}}
+          <div class="error">{{t "user.login.invalid"}}</div>
+        {{/if}}
+
+        <div class="action">
+          {{#link-to "user.forgot"}}&gt; {{t "user.login.forgot"}}{{/link-to}}
+        </div>
+      </form>
+    </div>
+
+    <div class="user-box">
+      <div class="instructions">
+        {{t "user.register.instructions"}}
+      </div>
+
+      <div class="form">
+        {{#link-to "user.register" class="form-button blue"}}{{t "user.register.create"}}{{/link-to}}
+
+        <div class="action">
+          <a href="http://info.esfbook.net/" target="_blank">&gt; {{t "user.register.help"}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

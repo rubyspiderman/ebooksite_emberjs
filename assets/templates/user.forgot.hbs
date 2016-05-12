@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="small-12 columns">
+    <div class="user-box">
+      <div class="instructions">
+        {{t "user.forgot.instructions"}}
+      </div>
+
+      <form class="form" {{action "request" on="submit"}}>
+        {{input class="form-text" placeholderTranslation="user.forgot.identifier" type="text" value=identifier}}
+        <button {{bind-attr disabled=incomplete}} class="form-button blue" type="submit">{{t "user.forgot.recover"}}</button>
+        <a {{action "cancel"}} class="form-button gray">{{t "user.cancel"}}</a>
+
+        {{#if error}}
+          <div class="error">{{t "user.forgot.invalid"}}</div>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</div>

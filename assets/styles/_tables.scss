@@ -1,0 +1,40 @@
+.table {
+  table-layout: fixed;
+  width: 100%;
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $light-gray;
+
+      &:hover {
+        background-color: darken($white, 5%);
+      }
+    }
+  }
+
+  td, th {
+    overflow: hidden;
+    padding: 0.25em 0.5em;
+    text-overflow: ellipsis;
+  }
+
+  th {
+    background-color: $red;
+    color: $white;
+    font-size: 0.88em;
+    font-weight: normal;
+    text-align: left;
+    text-transform: uppercase;
+
+    a {
+      color: $white;
+    }
+  }
+}
+
+.table-placeholder {
+  color: $gray;
+  font-size: 2em;
+  padding: 1.5em 0;
+  text-align: center;
+}

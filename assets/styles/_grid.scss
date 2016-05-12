@@ -1,0 +1,68 @@
+$small: 20em;
+$medium: 40em;
+$large: 64em;
+
+$screen: 'only screen';
+
+$small-up: $screen;
+$medium-up: '#{$screen} and (min-width: #{$medium})';
+$large-up: '#{$screen} and (min-width: #{$large})';
+
+$high-res: '(-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)';
+
+$columns: 12;
+
+@mixin columns($size) {
+  @for $i from 1 through $columns {
+    &.#{$size}-#{$i} {
+      width: percentage($i / $columns);
+    }
+  }
+}
+
+.column, .columns {
+  float: left;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+
+  @include columns('small');
+}
+
+.medium-up {
+  display: none;
+}
+
+.large-up {
+  display: none;
+}
+
+.row {
+  margin: 0 auto;
+  max-width: $large;
+
+  .row {
+    margin: 0 -0.5em;
+  }
+
+  @include clearfix;
+}
+
+@media #{$medium-up} {
+  .column, .columns {
+    @include columns('medium');
+  }
+
+  .medium-up {
+    display: block;
+  }
+}
+
+@media #{$large-up} {
+  .column, .columns {
+    @include columns('large');
+  }
+
+  .large-up {
+    display: block;
+  }
+}

@@ -1,0 +1,61 @@
+.page-delete {
+  .box {
+    margin-bottom: 1em;
+  }
+}
+
+.page-edit {
+  hr {
+    background: $light-gray;
+    border: 0;
+    height: 1px;
+    margin: 0 0 2em 0;
+  }
+
+  .file-upload-single {
+    background-color: $light-gray;
+    margin-top: 1em;
+    padding: 0.25em 0.5em;
+
+    @include border-radius(4px);
+
+    .name {
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    .status {
+      color: $dark-gray;
+      font-size: 0.9em;
+    }
+  }
+
+  .item, .placeholder {
+    margin-top: 1em;
+
+    .form-button, .form-text {
+      margin-top: 0.5em;
+      width: 100%;
+    }
+
+    .thumbnail {
+      cursor: move;
+    }
+  }
+
+  .other-instructor {
+    margin-bottom: 0.5em;
+
+    .form-button {
+      width: 100%;
+    }
+  }
+
+  .placeholder {
+    background-color: $light-gray;
+
+    .actions, .fields {
+      visibility: hidden;
+    }
+  }
+}

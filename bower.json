@@ -1,0 +1,19 @@
+{
+  "name": "ESFBOOK",
+  "version": "2.0.0",
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "cldr": "~1.0.2",
+    "ember": "~1.7.0",
+    "ember-i18n": "latest",
+    "ember-data": "~1.0.0",
+    "ember-simple-auth": "https://github.com/simplabs/ember-simple-auth-component.git",
+    "galleria": "~1.4.2",
+    "html.sortable": "~0.1.6",
+    "jquery-guillotine": "~1.2.2",
+    "momentjs": "~2.8.0",
+    "pikaday": "~1.2.0",
+    "typeahead.js": "~0.10.5",
+    "wysihtml5": "master"
+  }
+}

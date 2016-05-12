@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="small-12 medium-8 large-9 columns">
+    <h1>{{display}}</h1>
+
+    {{#with school}}
+      {{view ESF.LogoView}}
+    {{/with}}
+
+    <table class="user-info table">
+      <tr>
+        <td>{{t "user.username"}}</td>
+        <td>{{username}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.password"}}</td>
+        <td>********</td>
+      </td>
+
+      <tr>
+        <td>{{t "user.mail"}}</td>
+        <td>{{mail}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.last"}}</td>
+        <td>{{last}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.first"}}</td>
+        <td>{{first}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.bio"}}</td>
+        <td>{{bio}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.dob"}}</td>
+        <td>{{dob}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.phone"}}</td>
+        <td>{{phone}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.facebook"}}</td>
+        <td>{{facebook}}</td>
+      </tr>
+
+      <tr>
+        <td>{{t "user.twitter"}}</td>
+        <td>{{twitter}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="medium-up medium-4 large-3 columns">
+    {{view ESF.PictureView}}
+  </div>
+</div>

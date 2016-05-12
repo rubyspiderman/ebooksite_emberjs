@@ -1,0 +1,23 @@
+<div class="page-delete row">
+  <div class="small-12 columns">
+    <div class="box black">
+      <h1>{{title}}</h1>
+
+      {{t "page.delete.confirmation"}}
+    </div>
+
+    <div class="actions row">
+      <div class="small-12 medium-6 columns">
+        <a {{action "delete"}} class="delete">
+          {{t "page.delete"}}
+        </a>
+      </div>
+
+      <div class="small-12 medium-6 columns">
+        <a {{action "cancel"}} class="cancel">
+          {{t "page.cancel"}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

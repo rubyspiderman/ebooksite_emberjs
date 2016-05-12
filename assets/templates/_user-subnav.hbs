@@ -1,0 +1,29 @@
+<div class="user-subnav row">
+  <div class="small-12 medium-10 columns">
+    {{#link-to "user.profile" session.user_id class="user-subnav-link"}}
+      {{t "user.profile"}}
+    {{/link-to}}
+
+    {{#link-to "user.pages" session.user_id class="user-subnav-link"}}
+      {{t "user.pages"}}
+    {{/link-to}}
+
+    {{#if isSchool}}
+      {{#link-to "user.instructors" session.user_id class="user-subnav-link"}}
+        {{t "user.instructors"}}
+      {{/link-to}}
+
+      {{#link-to "user.subpages" session.user_id class="user-subnav-link"}}
+        {{t "user.subpages"}}
+      {{/link-to}}
+    {{/if}}
+  </div>
+
+  <div class="small-12 medium-2 columns">
+    {{#link-to "page.add" class="form-button blue"}}
+      {{t "page.create"}}
+    {{/link-to}}
+  </div>
+
+  <hr />
+</div>

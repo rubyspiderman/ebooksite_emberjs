@@ -1,0 +1,11 @@
+<div class="logo">
+  {{#if picture}}
+    <img {{bind-attr src=picture.logo}} />
+  {{else}}
+    <img src="/images/esf.jpg" />
+  {{/if}}
+</div>
+
+<div class="name">
+  <h2>{{display}}</h2>
+</div>

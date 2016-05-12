@@ -1,0 +1,51 @@
+<h2>{{t "page.comments.add"}}</h2>
+
+<form class="form" {{action "post" on="submit"}}>
+  <div class="form-group row">
+    <div class="small-12 large-2 columns form-label">
+      <label class="required">{{t "page.comments.name"}}</label>
+    </div>
+
+    <div class="small-12 large-10 columns">
+      {{input class="form-text" type="text" value=name}}
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="small-12 large-2 columns form-label">
+      <label class="required">{{t "page.comments.body"}}</label>
+    </div>
+
+    <div class="small-12 large-10 columns">
+      {{textarea class="form-text multiple" value=body}}
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="small-12 large-2 columns form-label">
+      <label>{{t "page.photos"}}</label>
+    </div>
+
+    <div class="small-12 large-10 columns">
+      {{#each photos}}
+        <div class="comment-photo">
+          <div class="thumbnail">
+            <img {{bind-attr src=thumbnail}} />
+          </div>
+
+          <div class="actions">
+            <button class="form-button red" {{action "removePhoto" this}}>{{t "page.comments.photo.remove"}}</button>
+          </div>
+        </div>
+      {{/each}}
+
+      {{file-upload destination=photos model="photo"}}
+    </div>
+  </div>
+
+  <button class="form-button blue" type="submit">{{t "page.comments.post"}}</button>
+
+  {{#if error}}
+    <p class="error">{{t "page.comments.invalid"}}</p>
+  {{/if}}
+</form>

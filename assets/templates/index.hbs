@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="small-12 columns">
+    {{#each messages}}
+      <div class="message-box">
+        {{this}}
+      </div>
+    {{/each}}
+
+    <div class="lookup-box">
+      <div class="instructions">
+        {{t "lookup.instructions"}}
+      </div>
+
+      <form class="form" {{action "lookup" on="submit"}}>
+        {{input class="form-text" value=code}}
+        <button class="form-button blue" type="submit">{{t "lookup.submit"}}</button>
+
+        {{#if error}}
+          <div class="error">{{t "lookup.invalid"}}</div>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="graph"></div>
+
+<div class="row">
+  {{#if view.initial}}
+    <div class="small-12 medium-6 columns">
+      <label >{{t "page.stats.initial"}}:</label> {{view.initial}} m
+    </div>
+  {{/if}}
+
+  {{#if view.final}}
+    <div class="small-12 medium-6 columns">
+      <label>{{t "page.stats.final"}}:</label> {{view.final}} m
+    </div>
+  {{/if}}
+
+  {{#if view.maximum}}
+    <div class="small-12 medium-6 columns">
+      <label>{{t "page.stats.maximum"}}:</label> {{view.maximum}} m
+    </div>
+  {{/if}}
+
+  {{#if view.minimum}}
+    <div class="small-12 medium-6 columns">
+      <label>{{t "page.stats.minimum"}}:</label> {{view.minimum}} m
+    </div>
+  {{/if}}
+
+  {{#if view.distance}}
+    <div class="small-12 medium-6 columns">
+      <label >{{t "page.stats.distance"}}:</label> {{view.distance}} m
+    </div>
+  {{/if}}
+</div>
